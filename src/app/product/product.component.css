@@ -1,0 +1,67 @@
+.product {
+    display: flex;
+    border-radius: 10px;
+    border: 2px dotted white;
+    padding: 1rem;
+}
+
+.pro-img {
+    width: 600px;
+}
+
+.main-img {
+    width: 100%;
+    position: relative;
+}
+
+.main-img button {
+    border: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    transition: background-color 0.2s;
+}
+
+.main-img button:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+
+.prev {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateX(20%) translateY(-50%);
+
+}
+
+.next {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateX(-20%) translateY(-50%);
+}
+
+.pro-images {
+    display: flex;
+}
+
+.img-select {
+    margin: 0.5rem;
+    margin-bottom: 0;
+}
+
+.img-select:nth-child(1) {
+    margin-left: 0;
+}
+
+.img-select:nth-last-child(1) {
+    margin-right: 0;
+}
+
+.pro-info {
+    color: #fff;
+    flex: 1;
+}

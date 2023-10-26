@@ -1,0 +1,9 @@
+<app-header></app-header>
+<div class=" main-body">
+    <div class="container">
+        <app-categories></app-categories>
+        <div *ngFor="let item of data">
+            <app-category-content [data]="item"></app-category-content>
+        </div>
+    </div>
+</div>

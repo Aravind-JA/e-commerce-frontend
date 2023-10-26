@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+.container {
+    margin: 0 auto;
+    min-width: 978px !important;
+    max-width: 1680px !important;
+    padding: 8px;
+}
+
+.body {
+    background: linear-gradient(to bottom, rgb(222, 222, 222) 100%, #434343 0%);
+    min-height: 90vh;
+}
+
+.main-body {
+    background: linear-gradient(to bottom, #000, #555);
+    min-height: 90vh;
+}
+
+img {
+    width: 100%;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-bottom: 0 !important;
+}

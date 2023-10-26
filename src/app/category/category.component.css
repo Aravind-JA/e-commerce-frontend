@@ -1,0 +1,35 @@
+/* .category-page {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    place-items: center;
+    row-gap: 2rem;
+    padding: 2rem 0;
+} */
+
+.category-page {
+    display: flex;
+    row-gap: 2rem;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.products {
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media (min-width:1140px){
+    .products{
+        width: 20%;
+    }
+}
+
+@media (max-width:1140px){
+    .products{
+        width:25%;
+    }
+}

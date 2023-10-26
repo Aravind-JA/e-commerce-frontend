@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div class="main-body">
+    <div class="container">
+        <div class="product">
+            <div class="pro-img">
+                <div class="main-img">
+                    <img [src]="images[currentImage]" alt="">
+                    <button class="prev" (click)="prev()" [disabled]="currentImage===0">
+                        <mat-icon>navigate_before</mat-icon>
+                    </button>
+                    <button class="next" (click)="next()" [disabled]="currentImage=== images.length-1">
+                        <mat-icon>navigate_next</mat-icon>
+                    </button>
+                </div>
+                <div class="pro-images">
+                    <div *ngFor="let image of images;let i = index" class="img-select">
+                        <img [src]="image" alt="" (click)="currentImage=i">
+                    </div>
+                </div>
+            </div>
+            <div class="pro-info">
+                <h1>{{product.name}}</h1>
+                <p>{{product.description}}</p>
+                <h2>{{product.price}}</h2>
+            </div>
+        </div>
+    </div>
+</div>

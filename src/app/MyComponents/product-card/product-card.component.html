@@ -1,0 +1,8 @@
+<div class="card" (click)="goToProduct(data.id)">
+    <img [src]="data.image" alt="">
+    <div class="product-info">
+        <h5>{{data.name}}</h5>
+        <p><span>$</span>{{data.price}}</p>
+    </div>
+    <p>{{data.description}}</p>
+</div>

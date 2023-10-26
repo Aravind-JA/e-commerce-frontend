@@ -1,0 +1,46 @@
+.card {
+    width: 240px;
+    padding: 10px;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    transform: scale(1.05) translateZ(10px);
+}
+
+.card img {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+
+
+.product-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-info h5 {
+    font-size: 16px;
+    font-weight: 600;
+    max-width: 160px;
+}
+
+.product-info p {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.product-info p span {
+    font-size: 16px;
+    color: yellow;
+}
+
+.card p {
+    font-size: 14px;
+    font-weight: 500;
+}

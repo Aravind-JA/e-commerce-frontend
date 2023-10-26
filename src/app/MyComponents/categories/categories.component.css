@@ -1,0 +1,30 @@
+.card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 20px;
+    border: none;
+    background-color: #fff;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.category h6 {
+    font-size: 16px;
+    font-weight: 600;
+
+}
+
+.cat-image {
+    width: 64px;
+    height: 64px;
+    margin: 15px;
+    display: flex;
+    align-items: center;
+}

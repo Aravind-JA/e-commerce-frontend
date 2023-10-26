@@ -1,0 +1,8 @@
+<div class="card">
+    <div *ngFor="let item of data" class="category">
+        <div class="cat-image" (click)="goToCategory(item.id)">
+            <img [src]="item.image" alt="">
+        </div>
+        <h6>{{item.name}}</h6>
+    </div>
+</div>
