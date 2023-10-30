@@ -10,7 +10,6 @@ import { MainServiceService } from 'src/app/Services/main-service.service';
 export class CategoryContentComponent implements OnInit {
   @Input() data: any;
   CategoryData: any = null;
-  showMore: boolean = false;
 
   constructor(private service: MainServiceService, private route: Router) { }
   async ngOnInit(): Promise<void> {
@@ -20,9 +19,6 @@ export class CategoryContentComponent implements OnInit {
   async Intialise() {
     this.service.CategoryProduct(this.data.id).subscribe((res: any) => {
       this.CategoryData = res.slice(0, 6);
-      if (this.CategoryData.length > 5) {
-        this.showMore = true;
-      }
     });
   }
 

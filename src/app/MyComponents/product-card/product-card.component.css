@@ -1,5 +1,6 @@
 .card {
     width: 240px;
+    min-height: 240px;
     padding: 10px;
     transition: transform 0.2s;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -14,6 +15,8 @@
     width: 200px;
     height: 200px;
     margin: 0 auto;
+    background-color: #fff;
+    object-fit: contain;
 }
 
 
@@ -43,4 +46,29 @@
 .card p {
     font-size: 14px;
     font-weight: 500;
+}
+
+@media (max-width:1540px) {
+    .card {
+        width: 220px;
+        height: 220px;
+    }
+    .card img{
+        width: 100%;
+        height: 90%;
+    }
+}
+
+@media(max-width:1400px){
+    .card{
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width:1300px){
+    .card{
+        width: 180px;
+        height: 180px;
+    }
 }

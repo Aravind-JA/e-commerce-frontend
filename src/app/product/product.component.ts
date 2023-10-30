@@ -25,15 +25,18 @@ export class ProductComponent implements OnInit {
   async Initialise(id: string) {
     this.service.FindProduct(id).subscribe((data: any) => {
       this.product = data;
+      console.log(data);
       this.images.push(data.image);
       this.images.push(...data.images);
     });
   }
 
-  next() {
+  Next() {
     this.currentImage++;
   }
-  prev() {
+
+  Prev() {
     this.currentImage--;
   }
+
 }

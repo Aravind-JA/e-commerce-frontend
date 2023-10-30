@@ -1,9 +1,13 @@
 .header {
     background: linear-gradient(to bottom, black 100%, #434343 0%);
-    /* background: #000; */
     color: #fff;
     display: flex;
     align-items: center;
+    height: 80px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 99;
 }
 
 header {

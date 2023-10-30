@@ -15,7 +15,6 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeRoute.paramMap.subscribe(async (params:any) => {
-      console.log(params);
       this.categoryId = params.get('id');
       await this.onQueryChange(this.categoryId);
     })
@@ -24,12 +23,10 @@ export class CategoryComponent implements OnInit {
   async onQueryChange(id: string) {
     this.service.FindCategory(id).subscribe((res) => {
       this.category = res;
-      console.log(res);
     });
     
     this.service.CategoryProduct(id).subscribe((res) => {
       this.categoryData = res;
-      console.log(res);
     });
   }
 }

@@ -3,25 +3,43 @@
     <div class="container">
         <div class="product">
             <div class="pro-img">
-                <div class="main-img">
-                    <img [src]="images[currentImage]" alt="">
-                    <button class="prev" (click)="prev()" [disabled]="currentImage===0">
-                        <mat-icon>navigate_before</mat-icon>
-                    </button>
-                    <button class="next" (click)="next()" [disabled]="currentImage=== images.length-1">
-                        <mat-icon>navigate_next</mat-icon>
-                    </button>
-                </div>
                 <div class="pro-images">
                     <div *ngFor="let image of images;let i = index" class="img-select">
                         <img [src]="image" alt="" (click)="currentImage=i">
                     </div>
                 </div>
+                <div class="main-img">
+                    <img [src]="images[currentImage]" alt="">
+                    <button class="prev" (click)="Prev()" [disabled]="currentImage===0">
+                        <mat-icon>navigate_before</mat-icon>
+                    </button>
+                    <button class="next" (click)="Next()" [disabled]="currentImage=== images.length-1">
+                        <mat-icon>navigate_next</mat-icon>
+                    </button>
+                </div>
             </div>
             <div class="pro-info">
-                <h1>{{product.name}}</h1>
-                <p>{{product.description}}</p>
-                <h2>{{product.price}}</h2>
+                <h1 class="pro-name">{{product.name}}</h1>
+                <p class="pro-desc">{{product.description}}</p>
+                <div class="pro-pricing">
+                    <h2 class="pro-price">{{ (product.price*(1-(product.discount/100))) |
+                        currency:'USD':'symbol':'1.2-2' }}</h2>
+                    <div class="pro-origin">
+                        <h5 class="origin-price">{{product.price|currency:'USD':'symbol':'1.2-2'}}</h5>
+                        <h5 class="discount">{{(product.discount/100)|percent:'2.2-2'}} off</h5>
+                    </div>
+                </div>
+                <!-- <h5>{{product.discount}}%</h5> -->
+                <div class="actions">
+                    <button class="btn btn-warning"><mat-icon>shopping_cart</mat-icon>Add to Cart</button>
+                    <button class="btn btn-danger"><mat-icon>flash_on</mat-icon>Buy Now</button>
+                </div>
+                <div class="pro-spec">
+                    <h3>Specifications : </h3>
+                    <ul>
+                        <li *ngFor="let spec of product.specs">{{spec}}</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
