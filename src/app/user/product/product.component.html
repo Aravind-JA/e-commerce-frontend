@@ -1,12 +1,13 @@
-<app-header></app-header>
 <div class="main-body">
     <div class="container">
         <div class="product">
             <div class="pro-img">
                 <div class="pro-images">
-                    <div *ngFor="let image of images;let i = index" class="img-select">
-                        <img [src]="image" alt="" (click)="currentImage=i">
+                    <button *ngIf="prevImages" class="more" (click)="prevImage()"><mat-icon>expand_less</mat-icon></button>
+                    <div *ngFor="let image of currentImages;let i = index" class="img-select" >
+                        <img [src]="image" alt="" (click)="currentImage=currentIndex+i">
                     </div>
+                    <button *ngIf="nextImages" class="more" (click)="moreImage()"><mat-icon>expand_more</mat-icon></button>
                 </div>
                 <div class="main-img">
                     <img [src]="images[currentImage]" alt="">
@@ -42,5 +43,6 @@
                 </div>
             </div>
         </div>
+        <app-category-content [data]="categoryData" *ngIf="categoryData"></app-category-content>
     </div>
 </div>

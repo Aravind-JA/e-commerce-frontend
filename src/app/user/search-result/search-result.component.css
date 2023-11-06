@@ -1,0 +1,21 @@
+.search-head{
+    padding-left: 2rem;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+}
+.search-page{
+    display: flex;
+    row-gap: 2rem;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 2rem 0;
+}
+.products{
+    /* flex: 1; */
+    min-width: calc(100%/6);
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

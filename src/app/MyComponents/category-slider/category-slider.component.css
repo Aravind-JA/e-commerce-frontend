@@ -1,0 +1,69 @@
+.slick-next::before,
+.slick-prev::after,
+.slick-arrow.slick-next,
+.slick-next {
+    color: black !important;
+}
+
+.slide {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+}
+
+.carousel {
+    background-color: #fff;
+    margin: 2rem 0;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.carousel-image {
+    width: 70%;
+    height: 400px;
+}
+
+.carousel-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.carousel-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.carousel-info div {
+    text-align: left;
+}
+
+.carousel-info div h2 {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.explore {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+.info-box {
+    transform: translateY(-40%);
+}
+
+.info-box:hover {
+    cursor: pointer;
+    color: #007acc;
+    text-decoration: underline;
+    transition: color 0.3s;
+    display: inline-block;
+    text-align: center;
+}

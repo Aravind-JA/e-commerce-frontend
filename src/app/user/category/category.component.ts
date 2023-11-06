@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MainServiceService } from '../Services/main-service.service';
+import { MainServiceService } from 'src/app/Services/main-service.service';
 
 @Component({
   selector: 'app-category',
@@ -14,7 +14,7 @@ export class CategoryComponent implements OnInit {
   constructor(private activeRoute: ActivatedRoute, private service: MainServiceService) { }
 
   ngOnInit(): void {
-    this.activeRoute.paramMap.subscribe(async (params:any) => {
+    this.activeRoute.paramMap.subscribe(async (params: any) => {
       this.categoryId = params.get('id');
       await this.onQueryChange(this.categoryId);
     })
@@ -24,7 +24,7 @@ export class CategoryComponent implements OnInit {
     this.service.FindCategory(id).subscribe((res) => {
       this.category = res;
     });
-    
+
     this.service.CategoryProduct(id).subscribe((res) => {
       this.categoryData = res;
     });

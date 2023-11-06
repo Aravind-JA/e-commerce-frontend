@@ -60,10 +60,11 @@
 .pro-images {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 0.5rem;
     border: 1px dotted #fff;
     border-radius: 5px;
+    gap: 0.5rem;
 }
 
 .img-select {
@@ -83,7 +84,9 @@
     object-fit: contain;
     padding: 10px;
 }
-
+.more{
+    border: none;
+}
 .pro-info {
     color: #fff;
     flex: 1;

@@ -13,7 +13,9 @@
     align-items: center;
     padding: 2rem 0;
 }
-
+.category-container{
+    background-color: rgb(220, 220, 220);
+}
 .products {
     padding: 0 1rem;
     display: flex;

@@ -13,6 +13,7 @@ export class CategoryContentComponent implements OnInit {
 
   constructor(private service: MainServiceService, private route: Router) { }
   async ngOnInit(): Promise<void> {
+    console.log(this.data);
     await this.Intialise();
   }
 

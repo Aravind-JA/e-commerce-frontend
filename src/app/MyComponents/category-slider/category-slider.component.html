@@ -1,0 +1,15 @@
+<div class="carousel-container">
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="carouselSettings">
+        <div ngxSlickItem *ngFor="let category of categoryData" class="slide">
+            <div class="carousel-image">
+                <img [src]="category.image" alt="">
+            </div>
+            <div class="carousel-info">
+                <div (click)="goCategory(category.id)" class="info-box">
+                    <h2>{{category.name}}</h2>
+                    <p class="explore"><mat-icon>add</mat-icon> Explore</p>
+                </div>
+            </div>
+        </div>
+    </ngx-slick-carousel>
+</div>

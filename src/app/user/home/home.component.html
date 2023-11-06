@@ -1,7 +1,7 @@
-<app-header></app-header>
 <div class=" main-body">
     <div class="container">
         <app-categories></app-categories>
+        <app-category-slider></app-category-slider>
         <div *ngFor="let item of data">
             <app-category-content [data]="item"></app-category-content>
         </div>

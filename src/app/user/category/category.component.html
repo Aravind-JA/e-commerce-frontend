@@ -1,0 +1,12 @@
+<div class="main-body">
+    <div class="container">
+        <!-- <p>category: {{category.name}}</p> -->
+        <div class="card category-container">
+            <div class="category-page">
+                <div *ngFor="let item of categoryData" class="products">
+                    <app-product-card [data]="item"></app-product-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -22,4 +22,8 @@ export class MainServiceService {
   FindProduct(id: string) {
     return this.http.get(`http://localhost:3333/product/${id}`);
   }
+
+  SearchProduct(query: string) {
+    return this.http.get(`http://localhost:3333/search/?q=${query}`);
+  }
 }
