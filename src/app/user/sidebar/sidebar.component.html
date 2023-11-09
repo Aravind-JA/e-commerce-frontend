@@ -1,0 +1,9 @@
+<div class="card">
+    <div class="sidebar">
+        <h1>Categories</h1>
+        <hr>
+        <h3 *ngFor="let category of Category" class="links" [ngClass]="{'active': category.id == currentId}"
+            (click)="goToCategory(category.id)">
+            {{category.name}}</h3>
+    </div>
+</div>

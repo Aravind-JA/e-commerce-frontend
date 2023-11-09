@@ -1,9 +1,15 @@
 <div class=" main-body">
     <div class="container">
         <app-categories></app-categories>
-        <app-category-slider></app-category-slider>
-        <div *ngFor="let item of data">
+        <app-slider [images]="slideImages"></app-slider>
+        <div *ngFor="let item of data;let i = index">
             <app-category-content [data]="item"></app-category-content>
+            <div class="offer-cont">
+                <img [src]="OfferImage(offerNum)" alt="">
+                <img [src]="OfferImage(offerNum)" alt="">
+                <img [src]="OfferImage(offerNum)" alt="">
+            </div>
+            <app-category-slider *ngIf="i+1 == 3"></app-category-slider>
         </div>
     </div>
 </div>

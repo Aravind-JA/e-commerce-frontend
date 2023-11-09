@@ -9,12 +9,13 @@ import { AdminModule } from './admin/admin.module';
 import { HeaderComponent } from './MyComponents/header/header.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { CommonModule } from '@angular/common';
-
+import { FooterComponent } from './MyComponents/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    FooterComponent,
   ],
   imports: [
     AppRoutingModule,

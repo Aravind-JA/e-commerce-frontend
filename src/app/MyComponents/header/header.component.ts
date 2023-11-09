@@ -1,4 +1,3 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -35,6 +34,6 @@ export class HeaderComponent implements OnInit {
   }
 
   ShowLogin() {
-    return this.showLogin ? this.showLogin = false : this.showLogin = true;
+    this.showLogin = true;
   }
 }

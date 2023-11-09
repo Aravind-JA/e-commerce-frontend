@@ -11,19 +11,19 @@
 
                     <div class="col">
                         <label for="email">Email</label>
-                        <input type="text" name="email" id="email">
+                        <input [(ngModel)]="loginUserData.email" type="text" name="email" id="email">
                     </div>
 
                     <div class="col">
                         <label for="password">Password</label>
-                        <input type="password" name="password" id="password">
+                        <input [(ngModel)]="loginUserData.password" type="password" name="password" id="password">
                     </div>
 
-                    <button type="submit" class="butn">Login</button>
+                    <button type="submit" class="butn" (click)="LoginUser()">Login</button>
                 </form>
                 <div class="sign-up">
                     <h3>New to E-Commerce website?</h3>
-                    <button class="butn">Sign Up</button>
+                    <button class="butn" (click)="goToRegister()">Sign Up</button>
                 </div>
             </div>
         </div>

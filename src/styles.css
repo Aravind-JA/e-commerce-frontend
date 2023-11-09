@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
 
 :root {
     --primary-color: : rgb(0, 93, 153);
@@ -11,7 +14,8 @@
     margin: 0 auto;
     min-width: 978px !important;
     max-width: 1680px !important;
-    padding: 8px;
+    overflow-x: hidden;
+    padding: 0 8px;
 }
 
 .body {
@@ -22,7 +26,7 @@
 .main-body {
     /* background: linear-gradient(to bottom, #000, #555); */
     /* background: linear-gradient(to bottom, #a6c0fe, #f8d3e2); */
-    background:  #e5e5e5;
+    background: #e5e5e5;
     min-height: calc(100vh - 80px);
     overflow-y: scroll;
 }
@@ -42,21 +46,22 @@ h3,
 h4,
 h5,
 h6,
-p,span {
+p,
+span {
     margin-bottom: 0 !important;
     font-family: 'Poppins', sans-serif !important;
 }
 
-button{
+button {
     font-family: 'Poppins', sans-serif !important;
 }
 
-.overlay{
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 99;
 }

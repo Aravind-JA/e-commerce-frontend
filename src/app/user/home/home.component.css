@@ -1,0 +1,12 @@
+.container{
+    margin: 1rem auto;
+}
+
+.offer-cont{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.offer-cont img{
+    width: 33%;
+}

@@ -1,0 +1,43 @@
+.sidebar {
+    min-height: 90vh;
+    min-width: 300px;
+    padding: 1rem;
+}
+
+.sidebar h1 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.links {
+    padding: 0.5rem ;
+    font-size: 16px;
+    color: #333;
+    font-weight: 400;
+    transition: padding 0.3s;
+}
+
+/* .active {
+    padding: 0.8rem;
+    border-radius: 15px;
+    background: #0d246c;
+    margin: 10px 0;
+    font-weight: 600;
+    border: 1px solid #bababa;
+} */
+
+.active {
+    padding: 0.5rem;
+    border-radius: 15px;
+    background: #007acc;
+    margin: 10px 0;
+    font-weight: 600;
+    color: #fff;
+    border: 1px solid #005d99;
+    cursor: pointer;
+    transition: padding 0.3s;
+}
+
+.links:hover {
+    padding-left: 1.2rem;
+}
