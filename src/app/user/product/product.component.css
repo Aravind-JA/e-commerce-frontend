@@ -1,7 +1,13 @@
+.container {
+    margin: 1rem auto;
+}
+
 .product {
     display: flex;
+    align-items: center;
     border-radius: 10px;
-    border: 2px dotted white;
+    background-color: #fff;
+    color: #333;
 }
 
 .pro-img {
@@ -9,7 +15,6 @@
     flex-direction: row;
     gap: 1rem;
     padding: 1rem;
-    border-right: 2px dotted white;
 }
 
 .main-img {
@@ -62,7 +67,7 @@
     flex-direction: column;
     justify-content: flex-start;
     padding: 0.5rem;
-    border: 1px dotted #fff;
+    border: 1px dotted #666;
     border-radius: 5px;
     gap: 0.5rem;
 }
@@ -84,11 +89,13 @@
     object-fit: contain;
     padding: 10px;
 }
-.more{
+
+.more {
     border: none;
 }
+
 .pro-info {
-    color: #fff;
+    color: #333;
     flex: 1;
     padding: 1rem;
     display: flex;
@@ -97,13 +104,13 @@
 }
 
 .pro-name {
-    font-size: 30px;
-    font-weight: 700;
-    color: deepskyblue;
+    font-size: 21px;
+    font-weight: 400;
 }
 
 .pro-desc {
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .pro-pricing {
@@ -114,8 +121,8 @@
 }
 
 .pro-price {
-    font-size: 36px;
-    font-weight: 800;
+    font-size: 28px;
+    font-weight: 500;
 }
 
 .pro-origin {
@@ -125,17 +132,16 @@
 
 .origin-price {
     text-decoration: line-through;
-    text-decoration-color: red;
-    /* text-decoration-style: double; */
-    text-decoration-thickness: 2px;
+    text-decoration-color: rgb(135, 135, 135);
+    text-decoration-thickness: 1px;
     text-decoration-skip: spaces;
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 16px;
+    color: rgb(135, 135, 135);
 }
 
 .discount {
-    color: #9aff00;
-    font-size: 22px;
+    color: rgb(56, 142, 60);
+    font-size: 14px;
     font-weight: 600;
 }
 
@@ -149,10 +155,6 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-}
-.pro-spec ul li{
-font-size: 15px;
-font-weight: 500;
 }
 
 .actions {
@@ -171,4 +173,61 @@ font-weight: 500;
     gap: 0.5rem;
     align-items: center;
     justify-content: center;
+}
+
+.rate-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    width: fit-content;
+    background-color: #388e3c;
+    border-radius: 3px;
+    padding: 2px 4px 2px 6px;
+    color: #fff;
+    gap: 2px;
+}
+
+.star {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: unset;
+    width: unset;
+}
+
+.rate-stat {
+    font-size: 14px;
+    font-weight: 500;
+    color: #878787;
+    font-family: 'Poppins', sans-serif;
+}
+
+.specs {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.specs li {
+    color: #212121;
+    line-height: 22px;
+    font-size: 14px;
+    display: flex;
+    align-items: baseline;
+}
+.specs li mat-icon{
+    font-size: 16px;
+    color: #388e3c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -2px;
 }

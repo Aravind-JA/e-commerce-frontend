@@ -65,3 +65,20 @@ button {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 99;
 }
+
+.overlay-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    transform: translateY(-20%);
+    z-index: 999;
+}
+
+.btn-cart {
+    background-color: rgb(255, 159, 0) !important;
+}
+
+.btn-shop {
+    background-color: rgb(251, 100, 27) !important;
+}

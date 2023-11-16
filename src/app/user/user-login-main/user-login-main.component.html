@@ -1,0 +1,32 @@
+<div class="main-body">
+    <div class="model">
+        <div class="show">
+            <h1>Login</h1>
+            <p>Get access to your Orders, Wishlist and Recommendations</p>
+        </div>
+        <div class="log-form">
+            <form class="login-form">
+
+                <div class="col">
+                    <label for="email">Email</label>
+                    <input [(ngModel)]="loginUserData.email" type="text" name="email" id="email" placeholder="Enter email">
+                </div>
+
+                <div class="col">
+                    <label for="password">Password</label>
+                    <input [(ngModel)]="loginUserData.password" type="password" name="password" id="password" placeholder="Enter password">
+                </div>
+
+                <div class="butn-row">
+                    <button type="submit" class="butn" (click)="LoginUser()">Login</button>
+                </div>
+            </form>
+            <div class="sign-up">
+                <h3>New to E-Commerce website?</h3>
+                <div class="butn-row">
+                    <button class="butn" (click)="goToRegister()">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

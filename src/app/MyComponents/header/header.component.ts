@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -9,18 +10,16 @@ import { Router } from '@angular/router';
 
 export class HeaderComponent implements OnInit {
   search!: String;
+  isAdmin: boolean = false;
+  isLoggedIn!: boolean;
   showLogin: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private _userService: UserService, private route: ActivatedRoute) { }
 
   goHome() {
     this.router.navigate(['home']);
   }
-  /**
-   * AUTHOR: 
-   * Desc:
-   * Out
-   */
+
   Search() {
     if (!this.search) {
 
@@ -30,10 +29,31 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        const currentUrl: string = this.router.url;
+        this.isAdmin = currentUrl.includes('/admin');
+      }
+    });
 
+    this.Intialize();
+  }
+
+  Intialize() {
+    this.isLoggedIn = this._userService.isLoggedIn();
   }
 
   ShowLogin() {
     this.showLogin = true;
+  }
+
+  Logout() {
+    this._userService.LogoutUser();
+    this.router.navigate(['home']);
+    this.isLoggedIn = false;
+  }
+
+  AdminLogin() {
+    this.router.navigate(['admin/dashboard']);
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/Services/user.service';
 
 @Component({
@@ -7,17 +8,19 @@ import { UserService } from 'src/app/Services/user.service';
   styleUrls: ['./user-register.component.css']
 })
 export class UserRegisterComponent implements OnInit {
-  
-  showLogin: boolean = false;
+
+  success: boolean = false;
+  error: boolean = false;
+
   registerUserData: {
-    firstName: string, lastName: string, email: string, phone: number|null,
+    firstName: string, lastName: string, email: string, phone: number | null,
     password: string, address: string, district: string, state: string
   } = {
       firstName: '', lastName: '', email: '', phone: null,
       password: '', address: '', district: '', state: ''
     }
 
-  constructor(private _userService: UserService) { }
+  constructor(private _userService: UserService, private _router: Router) { }
 
   ngOnInit(): void {
 
@@ -27,13 +30,21 @@ export class UserRegisterComponent implements OnInit {
     console.log(this.registerUserData);
     this._userService.RegisterUser(this.registerUserData).subscribe((res) => {
       console.log(res);
-      if (res.status == 200) {
-        this.showLogin = true;
-      }
+      this.success = true;
     },
       (err) => {
         console.log(err);
+        this.error = true;
       }
     );
+  }
+
+  goToRegister() {
+    this.error = false
+    this._router.navigate(['register']);
+  }
+
+  goToLogin() {
+    this._router.navigate(['login']);
   }
 }

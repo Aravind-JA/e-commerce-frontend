@@ -28,7 +28,11 @@ export class UserLoginComponent implements OnInit {
     this._userAuth.LoginUser(this.loginUserData).subscribe((res: any) => {
       console.log(res);
       localStorage.setItem('user-token', res.token);
-    })
+      localStorage.setItem('user-id', res.id);
+      this.CloseLogin();
+    }, (err) => {
+      console.log(err);
+    });
   }
 
   async goToRegister() {

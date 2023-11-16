@@ -1,6 +1,6 @@
 <div class="header">
     <div class="container">
-        <header>
+        <header *ngIf="!isAdmin">
             <div class="logo" (click)="goHome()">
                 <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/flipkart-095e08.svg"
                     alt="logo">
@@ -14,17 +14,44 @@
                 <input type="text" [(ngModel)]="search" (keydown.enter)="Search()" placeholder="Search for Products">
             </div>
             <div class="actions">
-                <div class="header-components">
+                <div class="header-components" (click)="AdminLogin()">
                     <mat-icon>card_travel</mat-icon>
                     <span>Become a Seller</span>
                 </div>
-                <div class="header-components" (click)="ShowLogin()">
+                <div class="header-components" (click)="ShowLogin()" *ngIf="!isLoggedIn">
                     <mat-icon>person</mat-icon>
                     <span>Sign In</span>
                 </div>
-                <div class="header-components" [routerLink]="['/cart']" routerLinkActive="router-link-active" >
+                <div class="header-components" (click)="Logout()" *ngIf="isLoggedIn">
+                    <mat-icon>logout</mat-icon>
+                    <span>Log out</span>
+                </div>
+                <div class="header-components" [routerLink]="['/cart']" routerLinkActive="router-link-active">
                     <mat-icon class="light-icon">shopping_cart</mat-icon>
                     <span>Cart</span>
+                </div>
+            </div>
+        </header>
+        <header *ngIf="isAdmin">
+            <div class="logo">
+                <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/flipkart-095e08.svg"
+                    alt="logo">
+                <a>
+                    <span>Explore</span>
+                    <span class="plus">Plus</span>
+                </a>
+            </div>
+            <div class="header-components">
+                Welcome to E-Commerce Admin Panel
+            </div>
+            <div class="actions">
+                <div class="header-components">
+                    <mat-icon>person</mat-icon>
+                    <span>Admin Sign In</span>
+                </div>
+                <div class="header-components">
+                    <mat-icon>logout</mat-icon>
+                    <span>Log out</span>
                 </div>
             </div>
         </header>

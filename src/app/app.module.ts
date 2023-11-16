@@ -23,7 +23,7 @@ import { FooterComponent } from './MyComponents/footer/footer.component';
     MatIconModule,
     CommonModule,
     UserModule,
-    AdminModule
+    AdminModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -62,3 +62,30 @@
         </div>
     </div>
 </div>
+
+<div class="overlay" *ngIf="success || error">
+    <div class="overlay-content" *ngIf="success">
+        <div class="card pop-up">
+            <h1>Registration Successfull</h1>
+            <div class="info">
+                <p>You have successfully registered as a Customer.</p>
+                <p>Login to Continue.</p>
+            </div>
+            <div class="row justify-content-end">
+                <button (click)="goToLogin()">Login</button>
+            </div>
+        </div>
+    </div>
+    <div class="overlay-content" *ngIf="error">
+        <div class="card pop-up">
+            <h1>Registration Unsuccessfull</h1>
+            <div class="info">
+                <p>You have failed to register as a Customer.</p>
+                <p>Register to Continue.</p>
+            </div>
+            <div class="row justify-content-end">
+                <button (click)="goToRegister()">Try Again</button>
+            </div>
+        </div>
+    </div>
+</div>

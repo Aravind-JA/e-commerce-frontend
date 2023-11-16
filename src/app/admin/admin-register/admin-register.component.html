@@ -1,0 +1,77 @@
+<div class="main-body">
+    <div class="container">
+        <div class="content">
+            <div class="sidebar">
+                <h1>Register as a Seller</h1>
+                <hr>
+                <p>Get access to sell Online and make profit through our retail system.</p>
+            </div>
+            <div class="register">
+                <h1>Admin registration</h1>
+                <form>
+                    <div class="row">
+                        <div class="form-group col">
+                            <label for="userName">Username</label>
+                            <input type="text" class="form-control" id="userName" name="userName" placeholder="Username"
+                                [(ngModel)]="registerAdminData.userName">
+                        </div>
+                        <div class="form-group col">
+                            <label for="phone">Phone No.</label>
+                            <input type="text" class="form-control" id="phone" placeholder="Phone" name="phone"
+                                [(ngModel)]="registerAdminData.phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="text" name="email" id="email" class="form-control" placeholder="Enter email"
+                            [(ngModel)]="registerAdminData.email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password"
+                                name="password" [(ngModel)]="registerAdminData.password">
+                        </div>
+                        <div class="form-group col">
+                            <label for="con-password">Confirm Password</label>
+                            <input type="password" class="form-control" id="con-password" placeholder="Confirm Password"
+                                name="password" [(ngModel)]="conPassword">
+                            <small class="form-text text-danger"
+                                *ngIf="registerAdminData.password !== conPassword">Passwords Doesn't match.</small>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" (click)="RegisterAdmin()" [disabled]="registerAdminData.password !== conPassword">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="overlay" *ngIf="success || error">
+    <div class="overlay-content" *ngIf="success">
+        <div class="card pop-up">
+            <h1>Registration Successfull</h1>
+            <div class="info">
+                <p>You have successfully registered as a Seller.</p>
+                <p>Login to Continue.</p>
+            </div>
+            <div class="row justify-content-end">
+                <button (click)="goToLogin()">Login</button>
+            </div>
+        </div>
+    </div>
+    <div class="overlay-content" *ngIf="error">
+        <div class="card pop-up">
+            <h1>Registration Unsuccessfull</h1>
+            <div class="info">
+                <p>You have failed to register as an Admin.</p>
+                <p>Register to Continue.</p>
+            </div>
+            <div class="row justify-content-end">
+                <button (click)="TryAgain()">Try Again</button>
+            </div>
+        </div>
+    </div>
+</div>

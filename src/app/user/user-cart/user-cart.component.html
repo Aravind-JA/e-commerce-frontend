@@ -1,1 +1,47 @@
-<p>user-cart works!</p>
+<div class="main-body">
+    <div class="container">
+        <div class="cart">
+            <div class="cart-pros">
+                <div *ngFor="let product of CartProducts;let i = index" class="cart-pro">
+                    <app-product-list [product]="product"></app-product-list>
+                    <div class="cart-pro-info">
+                        <h4 (click)="RemoveCart(product.id)">Remove from Cart</h4>
+                        <div class="counter">
+                            <button (click)="Decrement(i)" class="butn"><mat-icon>remove</mat-icon></button>
+                            <span class="q-box">{{product.quantity}}</span>
+                            <button (click)="AddQuantity(i)" class="butn"><mat-icon>add</mat-icon></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="listing">
+                <div class="card pricing">
+                    <h1>Price Details</h1>
+                    <hr>
+                    <div class="list">
+                        <span>Price {{'('+totalQuantity+' items)'}}</span>
+                        <span>{{totalPrice|currency:'USD':'symbol':'1.0'}}</span>
+                    </div>
+                    <div class="list">
+                        <span>Discount</span>
+                        <span class="disct">-{{totalDiscount|currency:'USD':'symbol':'1.0'}}</span>
+                    </div>
+                    <div class="list">
+                        <span>Delivery Charges</span>
+                        <span class="disct">Free</span>
+                    </div>
+                    <div class="list">
+                        <span class="total">Total Amount</span>
+                        <span class="total">{{totalAmount | currency:'USD':'symbol':'1.0'}}</span>
+                    </div>
+                    <div class="list">
+                        <p class="disct">You will save {{totalDiscount}} on this order</p>
+                    </div>
+                    <div class="list ord">
+                        <button class="order" (click)="PlaceOrder()">Place Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

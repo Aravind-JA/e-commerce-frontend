@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MainServiceService } from '../../Services/main-service.service';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-product',
@@ -18,14 +19,30 @@ export class ProductComponent implements OnInit {
   currentIndex: number = 0;
   nextImages: boolean = false;
   prevImages: boolean = false;
+  inCart: boolean = false;
 
-  constructor(private route: ActivatedRoute, private service: MainServiceService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private _router: Router,
+    private service: MainServiceService,
+    private _userService: UserService) { }
+
   ngOnInit(): void {
     this.route.paramMap.subscribe(async (params: any) => {
       this.productId = params.get('id');
       await this.Initialise(this.productId);
       window.scrollTo(0, 0);
     });
+
+    if (this._userService.isLoggedIn()) {
+      this._userService.GetCartData().subscribe((res: any) => {
+        res.items.forEach((item: any) => {
+          if (item.product_id === this.productId) {
+            this.inCart = true;
+          }
+        });
+      });
+    }
   }
 
   async Initialise(id: string) {
@@ -70,4 +87,22 @@ export class ProductComponent implements OnInit {
     this.nextImages = true;
     this.prevImages = false;
   }
+
+  AddToCart(id: string) {
+    if (this._userService.isLoggedIn()) {
+      this._userService.AddToCart(id).subscribe((res:any) => {
+        console.log(res);
+        this.inCart = true;
+      }
+      )
+
+    } else {
+      this._router.navigate(['login']);
+    }
+  }
+
+  GoToCart() {
+    this._router.navigate(['cart']);
+  }
+
 }

@@ -7,6 +7,9 @@ import { SearchResultComponent } from './user/search-result/search-result.compon
 import { UserCartComponent } from './user/user-cart/user-cart.component';
 import { userAuthGuard } from './Guards/user-auth.guard';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
+import { UserLoginMainComponent } from './user/user-login-main/user-login-main.component';
+import { AdminLoginMainComponent } from './admin/admin-login-main/admin-login-main.component';
+import { AdminRegisterComponent } from './admin/admin-register/admin-register.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,8 +17,15 @@ const routes: Routes = [
   { path: 'category/:id', component: CategoryComponent },
   { path: 'product/:id', component: ProductComponent },
   { path: 'search', component: SearchResultComponent },
+  { path: 'login', component: UserLoginMainComponent },
   { path: 'register', component: UserRegisterComponent },
-  { path: 'cart', component: UserCartComponent, canActivate: [userAuthGuard] }
+  { path: 'cart', component: UserCartComponent, canActivate: [userAuthGuard] },
+  {
+    path: 'admin', children: [
+      { path: 'login', component: AdminLoginMainComponent },
+      { path: 'register', component: AdminRegisterComponent },
+    ]
+  }
 ];
 
 @NgModule({

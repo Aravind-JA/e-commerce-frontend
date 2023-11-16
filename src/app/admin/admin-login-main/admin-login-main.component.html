@@ -1,0 +1,67 @@
+<!-- <div class="main-body">
+    <div class="container">
+        <div class="content">
+            <app-admin-sidebar></app-admin-sidebar>
+            <div class="log-form card">
+                <div class="head">
+                    <h2>Sign In</h2>
+                    <p>Log in to your account to continue</p>
+                </div>
+                <form class="login-form">
+                    <div class="col">
+                        <label for="userName">Username</label>
+                        <input [(ngModel)]="loginAdminData.userName" type="text" name="userName" id="userName"
+                            placeholder="Enter username">
+                    </div>
+
+                    <div class="col">
+                        <label for="password">Password</label>
+                        <input [(ngModel)]="loginAdminData.password" type="password" name="password" id="password"
+                            placeholder="Enter password">
+                    </div>
+
+                    <div class="butn-row" (click)="LoginAdmin()">
+                        <button type="submit" class="butn">Login</button>
+                    </div>
+                </form>
+                <div class="sign-up">
+                    <h3>New to E-Commerce website?</h3>
+                    <button class="butn">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+<div class="main-body">
+    <div class="model">
+        <div class="log-form">
+            <form class="login-form">
+
+                <div class="col">
+                    <label for="userName">Username</label>
+                    <input [(ngModel)]="loginAdminData.userName" type="text" name="userName" id="userName"
+                        placeholder="Enter username">
+                </div>
+
+                <div class="col">
+                    <label for="password">Password</label>
+                    <input [(ngModel)]="loginAdminData.password" type="password" name="password" id="password"
+                        placeholder="Enter password">
+                </div>
+
+                <div class="butn-row">
+                    <button type="submit" class="butn" (click)="LoginAdmin()">Login</button>
+                </div>
+            </form>
+            <div class="sign-up">
+                <h3>New to E-Commerce website?</h3>
+                <div class="butn-row">
+                    <button class="butn" (click)="goToRegister()">Register as Admin</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -7,7 +7,7 @@ import { ProductCardComponent } from '../MyComponents/product-card/product-card.
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { SearchResultComponent } from './search-result/search-result.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +21,8 @@ import { UserService } from '../Services/user.service';
 import { UserCartComponent } from './user-cart/user-cart.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { FormsModule } from '@angular/forms';
+import { UserLoginMainComponent } from './user-login-main/user-login-main.component';
+import { UserTokenInterceptorService } from '../Services/user-token-interceptor.service';
 
 
 @NgModule({
@@ -38,6 +40,7 @@ import { FormsModule } from '@angular/forms';
     SidebarComponent,
     UserCartComponent,
     UserRegisterComponent,
+    UserLoginMainComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +52,12 @@ import { FormsModule } from '@angular/forms';
     SlickCarouselModule,
     CommonModule
   ],
-  providers: [UserService]
+  providers: [UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UserTokenInterceptorService,
+      multi: true
+    }
+  ]
 })
 export class UserModule { }

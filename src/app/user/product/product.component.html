@@ -3,11 +3,13 @@
         <div class="product">
             <div class="pro-img">
                 <div class="pro-images">
-                    <button *ngIf="prevImages" class="more" (click)="prevImage()"><mat-icon>expand_less</mat-icon></button>
-                    <div *ngFor="let image of currentImages;let i = index" class="img-select" >
+                    <button *ngIf="prevImages" class="more"
+                        (click)="prevImage()"><mat-icon>expand_less</mat-icon></button>
+                    <div *ngFor="let image of currentImages;let i = index" class="img-select">
                         <img [src]="image" alt="" (click)="currentImage=currentIndex+i">
                     </div>
-                    <button *ngIf="nextImages" class="more" (click)="moreImage()"><mat-icon>expand_more</mat-icon></button>
+                    <button *ngIf="nextImages" class="more"
+                        (click)="moreImage()"><mat-icon>expand_more</mat-icon></button>
                 </div>
                 <div class="main-img">
                     <img [src]="images[currentImage]" alt="">
@@ -21,6 +23,14 @@
             </div>
             <div class="pro-info">
                 <h1 class="pro-name">{{product.name}}</h1>
+                <p class="rate-info">
+                    <span class="rating">
+                        <span>4.2</span>
+                        <mat-icon class="star">star</mat-icon>
+                    </span>
+                    <span class="rate-stat">14,734 Ratings &</span>
+                    <span class="rate-stat">1,554 Reviews</span>
+                </p>
                 <p class="pro-desc">{{product.description}}</p>
                 <div class="pro-pricing">
                     <h2 class="pro-price">{{ (product.price*(1-(product.discount/100))) |
@@ -30,15 +40,19 @@
                         <h5 class="discount">{{(product.discount/100)|percent:'2.2-2'}} off</h5>
                     </div>
                 </div>
-                <!-- <h5>{{product.discount}}%</h5> -->
                 <div class="actions">
-                    <button class="btn btn-warning"><mat-icon>shopping_cart</mat-icon>Add to Cart</button>
-                    <button class="btn btn-danger"><mat-icon>flash_on</mat-icon>Buy Now</button>
+                    <button class="btn btn-cart" (click)="AddToCart(product.id)"
+                        *ngIf="!inCart"><mat-icon>shopping_cart</mat-icon>Add
+                        to Cart</button>
+                    <button class="btn btn-cart" (click)="GoToCart()"
+                        *ngIf="inCart"><mat-icon>shopping_cart</mat-icon>Go
+                        to Cart</button>
+                    <button class="btn btn-shop"><mat-icon>flash_on</mat-icon>Buy Now</button>
                 </div>
                 <div class="pro-spec">
                     <h3>Specifications : </h3>
-                    <ul>
-                        <li *ngFor="let spec of product.specs">{{spec}}</li>
+                    <ul class="specs">
+                        <li *ngFor="let spec of product.specs"><mat-icon>sell</mat-icon><span>{{spec}}</span></li>
                     </ul>
                 </div>
             </div>
