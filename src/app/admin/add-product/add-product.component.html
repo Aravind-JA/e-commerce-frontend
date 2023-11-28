@@ -1,0 +1,103 @@
+<div class="card pro-form">
+    <h2>Add Product</h2>
+    <form action="">
+        <div class="row">
+            <div class="col form-group">
+                <label for="pro-name">Product name</label>
+                <input type="text" name="pro-name" id="pro-name" [(ngModel)]="productData.name" class="form-control">
+            </div>
+            <div class="col form-group">
+                <label for="pro-category">Select Category</label>
+                <select name="pro-category" id="pro-category" class="form-control"
+                    [(ngModel)]="productData.category_id">
+                    <option *ngFor="let category of categoryData" [value]="category.id">{{category.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2 form-group">
+                <label>Select Primary Image</label>
+                <input type="file" #primeImage name="pro-images" id="pro-images" class="form-control"
+                    (change)="imageSelect($event)">
+                <img alt="hello" *ngIf="productData.image" [src]="imageUrl" class="pro-image form-control">
+                <button class="butn" (click)="primeImage.click()">Select Image</button>
+
+            </div>
+            <div class="col form-group">
+                <label for="pro-desc">Product Description</label>
+                <textarea name="pro-desc" id="pro-desc" rows="5" class="form-control"
+                    [(ngModel)]="productData.description"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col form-group">
+                <label for="pro-price">Product Price</label>
+                <input type="text" name="pro-price" id="pro-price" [(ngModel)]="productData.price" class="form-control">
+            </div>
+            <div class="col form-group">
+                <label for="pro-discount">Product Discount</label>
+                <input type="text" name="pro-discount" id="pro-discount" [(ngModel)]="productData.discount"
+                    class="form-control">
+            </div>
+            <div class="col form-group">
+                <label>Effective Price</label>
+                <input type="text" class="form-control"
+                    [value]="this.productData.price * (1 - (this.productData.discount / 100))" disabled>
+            </div>
+        </div>
+        <div class="row">
+            <h4>Add Specifications</h4>
+            <div class="form-group" *ngFor="let spec of numberRange(specCount);let i = index">
+                <label>Specification {{spec}}</label>
+                <input type="text" [name]="'pro-spec' + i" [(ngModel)]="productData.specs[i]" class="form-control">
+            </div>
+            <div>
+                <button type="button" (click)="AddSpecs()" class="butn right">
+                    <mat-icon>add</mat-icon>Add
+                    specs</button>
+            </div>
+        </div>
+        <div class="row">
+            <h4>Add Images (*Optional)</h4>
+            <div class="col form-group" *ngFor="let num of numberRange(imageCount)">
+                <label>Image {{num}}</label>
+                <input type="file" #imageUpload name="pro-images" id="pro-images" (change)="onFileSelected($event,num)"
+                    class="form-control">
+                <img alt="hello" *ngIf="productData.images[num-1]" [src]="imageUrls[num - 1]"
+                    class="pro-image form-control">
+                <button class="butn" (click)="imageUpload.click()">Select Image</button>
+            </div>
+            <div>
+                <button type="button" (click)="imageCount = imageCount+1" class="butn right"><mat-icon>add</mat-icon>Add
+                    Images</button>
+            </div>
+        </div>
+        <button type="button" (click)="RegisterProduct()" class="butn">Create Product</button>
+    </form>
+</div>
+
+<div class="overlay" *ngIf="formSuccess || formError">
+    <div class="overlay-content" *ngIf="formSuccess">
+        <div class="card pop-up">
+            <h1>Product Successfully Registered.</h1>
+            <div class="info">
+                <p>You have successfully registered your Product.</p>
+            </div>
+            <div class="row justify-content-end">
+                <button>Go to Your Products</button>
+                <button>Okay</button>
+            </div>
+        </div>
+    </div>
+    <div class="overlay-content" *ngIf="formError">
+        <div class="card pop-up">
+            <h1>Product Registration Unsuccessfull</h1>
+            <div class="info">
+                <p>You have failed to register your new product.</p>
+            </div>
+            <div class="row justify-content-end">
+                <button>Try Again</button>
+            </div>
+        </div>
+    </div>
+</div>

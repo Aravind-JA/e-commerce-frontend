@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,8 @@ export class AdminService {
   private _adminUrl = 'http://localhost:3333/admin/'
   private _loginUrl = 'http://localhost:3333/admin/login/';
   private _registerUrl = 'http://localhost:3333/admin/register/';
+  private _adminProductUrl = 'http://localhost:3333/product/admin/';
+  private _productUrl = 'http://localhost:3333/product/';
 
   constructor(private http: HttpClient) { }
 
@@ -32,5 +35,26 @@ export class AdminService {
 
   GetAdminData() {
     return this.http.get(this._adminUrl + this.adminID);
+  }
+
+  private _adminProducts = new Subject<void>();
+
+  get AdminProducts() {
+    return this._adminProducts;
+  }
+
+  adminProducts() {
+    return this.http.get(this._adminProductUrl + this.adminID);
+  }
+
+  PostProduct(product: any) {
+    return this.http.post(this._productUrl, product);
+  }
+
+  DeleteProduct(id: string) {
+    this.http.delete(this._productUrl + id).subscribe((res) => {
+      console.log(res);
+      this.AdminProducts.next();
+    });
   }
 }

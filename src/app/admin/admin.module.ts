@@ -11,6 +11,10 @@ import { AdminComponent } from './admin.component';
 import { AdminProductsComponent } from './admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { MatIconModule } from '@angular/material/icon';
+import { AdminTokenInterceptorService } from '../Services/admin-token-interceptor.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,13 +25,22 @@ import { AdminProfileComponent } from './admin-profile/admin-profile.component';
     AdminDashboardComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
-    AdminProfileComponent
+    AdminProfileComponent,
+    AddProductComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     AdminRoutingModule,
-    RouterModule
+    RouterModule,
+    MatIconModule
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AdminTokenInterceptorService,
+      multi: true
+    }
   ]
 })
 export class AdminModule { }

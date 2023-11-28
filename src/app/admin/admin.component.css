@@ -6,3 +6,7 @@
     display: flex;
     gap: 0.8rem;
 }
+
+.main{
+    flex: 1;
+}

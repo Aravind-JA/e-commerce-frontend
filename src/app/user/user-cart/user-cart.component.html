@@ -5,7 +5,7 @@
                 <div *ngFor="let product of CartProducts;let i = index" class="cart-pro">
                     <app-product-list [product]="product"></app-product-list>
                     <div class="cart-pro-info">
-                        <h4 (click)="RemoveCart(product.id)">Remove from Cart</h4>
+                        <h4 (click)="RemoveCart(product.id,i)">Remove from Cart</h4>
                         <div class="counter">
                             <button (click)="Decrement(i)" class="butn"><mat-icon>remove</mat-icon></button>
                             <span class="q-box">{{product.quantity}}</span>

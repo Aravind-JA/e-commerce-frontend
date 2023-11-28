@@ -1,1 +1,41 @@
-<p>admin-products works!</p>
+<div class="card page">
+    <div class="head">
+        <h2>Products listed by {{AdminData.userName}}</h2>
+    </div>
+    <hr>
+    <div class="listing">
+        <div *ngFor="let product of AdminProducts">
+            <div class="card">
+                <div class="product">
+                    <div class="pro-image">
+                        <img [src]="product.image" alt="">
+                    </div>
+                    <div class="pro-info">
+                        <h1>{{product.name}}</h1>
+                        <p class="rate-info">
+                            <span class="rating">
+                                <span>4.2</span>
+                                <mat-icon class="star">star</mat-icon>
+                            </span>
+                            <span class="rate-stat">14,734 Ratings &</span>
+                            <span class="rate-stat">1,554 Reviews</span>
+                        </p>
+                        <ul class="specs">
+                            <li *ngFor="let item of product.specs">
+                                {{item}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pro-options">
+                        <button class="btn butn">View<mat-icon>north_east</mat-icon></button>
+                        <button class="btn butn">Edit<mat-icon>edit</mat-icon></button>
+                        <button class="btn butn" (click)="DeleteProduct(product.id)">Delete<mat-icon>delete</mat-icon></button>
+                        <!-- <h1>{{ product.price | currency:'USD':'symbol':'1.0' }}</h1>
+                        <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png"
+                            alt=""> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,5 +5,7 @@
         <h3 *ngFor="let content of sidebarContents" class="links"
             [ngClass]="{'active': content.toLowerCase() == currentUrl}" (click)="Navigate(content)">
             {{content}}</h3>
+        <h3 class="links" [ngClass]="{'active': currentUrl == 'add-product'}" (click)="Navigate('add-product')">Add
+            Product</h3>
     </div>
 </div>

@@ -1,0 +1,134 @@
+.page {
+    padding: 1rem 2rem;
+}
+
+.listing {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+/* .adm-pro-card{
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 5px;
+} */
+
+.product {
+    display: flex;
+    padding: 24px 24px 30px 24px;
+}
+
+.pro-image {
+    background-color: #fff;
+}
+
+.pro-image img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+.pro-info {
+    flex: 2;
+    padding-left: 1rem;
+}
+
+.pro-info h1 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.rate-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    width: fit-content;
+    background-color: #388e3c;
+    border-radius: 3px;
+    padding: 2px 4px 2px 6px;
+    color: #fff;
+    gap: 2px;
+}
+
+.star {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: unset;
+    width: unset;
+}
+
+.rate-stat {
+    font-size: 14px;
+    font-weight: 500;
+    color: #878787;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.specs {
+    padding-left: 0px;
+    margin-top: 5px;
+    list-style-type: none;
+}
+
+.specs li {
+    color: #212121;
+    line-height: 22px;
+    font-size: 14px;
+    display: table-row;
+}
+
+.specs li::before {
+    content: "•";
+    color: #c2c2c2;
+    padding-right: 8px;
+    display: table-cell;
+}
+
+.butn {
+    border: 1px solid #878787;
+    color: #333;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: transparent;
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.butn mat-icon{
+    font-size: 14px;
+}
+
+.pro-options {
+    flex: 0.5;
+    /* padding-top: 2rem; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* .pro-price img {
+    width: 100px;
+}
+
+.pro-price h1 {
+    color: rgb(33, 33, 33);
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 8px !important;
+} */

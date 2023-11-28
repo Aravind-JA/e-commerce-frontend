@@ -82,3 +82,9 @@ button {
 .btn-shop {
     background-color: rgb(251, 100, 27) !important;
 }
+
+mat-icon{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}

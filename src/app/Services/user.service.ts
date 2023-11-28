@@ -34,6 +34,11 @@ export class UserService {
     return !!localStorage.getItem('user-token');
   }
 
+  private _cartData = new Subject<void>();
+
+  get CartData() {
+    return this._cartData;
+  }
 
   GetCartData() {
     return this.http.get(this._cartUrl + this.UserId);
@@ -44,7 +49,10 @@ export class UserService {
   }
 
   RemoveFromCart(id: string) {
-    return this.http.delete(this._cartUrl + this.UserId + '/' + id);
+     this.http.delete(this._cartUrl + this.UserId + '/' + id).subscribe((res) => {
+       console.log(res);
+       this.CartData.next();
+    });
   }
 
   PlaceOrder(body: any) {

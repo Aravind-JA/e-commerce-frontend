@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { forkJoin } from 'rxjs';
 import { MainServiceService } from 'src/app/Services/main-service.service';
 import { UserService } from 'src/app/Services/user.service';
 
@@ -23,23 +22,26 @@ export class UserCartComponent implements OnInit {
     private _mainService: MainServiceService) { }
 
   async ngOnInit(): Promise<void> {
-    this._userService.GetCartData()
-      .subscribe((res: any) => {
-        const items = res.items;
+    this._userService.CartData.subscribe(() => {
+      // this.CartProducts = [];
+      this.Initialise();
+    });
+    this.Initialise();
+  }
 
-        if (items.length > 0) {
-          const requests = items.map((item: { product_id: string; }) => this._mainService.FindProduct(item.product_id));
-
-          forkJoin(requests).subscribe((products: any) => {
-            products.forEach((product: any) => {
-              product.quantity = 1;
-            });
-            this.CartProducts = products;
-            console.log(this.CartProducts);
-            this.TotalAmount();
-          });
-        }
-      });
+  Initialise() {
+    this.CartProducts = [];
+    this._userService.GetCartData().subscribe(async (res: any) => {
+      const items = res.items;
+      for (let i = 0; i < items.length; i++) {
+        this._mainService.FindProduct(items[i].product_id).subscribe(async (res: any) => {
+          res.quantity = 1;
+          this.CartProducts.push(res);
+          console.log(this.CartProducts);
+          await this.TotalAmount();
+        });
+      }
+    });
   }
 
   AddQuantity(index: number) {
@@ -59,8 +61,10 @@ export class UserCartComponent implements OnInit {
   }
 
 
-  RemoveCart(id: string) {
-    this._userService.RemoveFromCart(id).subscribe();
+  RemoveCart(id: string, index: number) {
+    this.CartProducts.splice(index, 1);
+    this.TotalAmount();
+    this._userService.RemoveFromCart(id);
   }
 
   async TotalAmount() {

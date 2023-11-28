@@ -12,7 +12,7 @@ export class AdminSidebarComponent implements OnInit {
   AdminData: any;
   currentUrl!: string;
 
-  sidebarContents = ['Dashboard', 'Products', 'Orders', 'Profile', 'Add Product'];
+  sidebarContents = ['Dashboard', 'Products', 'Orders', 'Profile'];
 
   private lastSegmentSubject = new Subject<any>();
   lastSegment$ = this.lastSegmentSubject.asObservable();
