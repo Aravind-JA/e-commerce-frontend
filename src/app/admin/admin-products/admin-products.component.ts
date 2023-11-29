@@ -9,6 +9,8 @@ import { AdminService } from 'src/app/Services/admin.service';
 export class AdminProductsComponent implements OnInit {
   AdminProducts: any = {};
   AdminData: any = {};
+  idToDelete!: string;
+  showDelete: boolean = false;
 
   constructor(private _adminService: AdminService) { }
 
@@ -28,8 +30,21 @@ export class AdminProductsComponent implements OnInit {
     })
   }
 
+  goToProduct(id: string) {
+    console.log(id)
+    window.open(`/product/${id}`)
+  }
+
+
+
   DeleteProduct(id: string) {
-    this._adminService.DeleteProduct(id);
+    this.showDelete = true;
+    this.idToDelete = id;
+  }
+
+  ConfirmDelete() {
+    this._adminService.DeleteProduct(this.idToDelete);
+    this.showDelete = false;
   }
 
 }

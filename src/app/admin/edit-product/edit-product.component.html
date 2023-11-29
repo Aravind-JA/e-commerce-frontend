@@ -1,5 +1,5 @@
 <div class="card pro-form">
-    <h2>Add Product</h2>
+    <h2>Edit Product</h2>
     <form action="">
         <div class="row">
             <div class="col form-group">
@@ -63,8 +63,7 @@
                 <label>Image {{num}}</label>
                 <input type="file" #imageUpload name="pro-images" id="pro-images" (change)="onFileSelected($event,num)"
                     class="form-control">
-                <img alt="hello" *ngIf="productData.images[num-1]" [src]="imageUrls[num - 1]"
-                    class="pro-image form-control">
+                <img alt="" *ngIf="productData.images[num-1]" [src]="imageUrls[num - 1]" class="pro-image form-control">
                 <button class="butn" (click)="imageUpload.click()">Select Image</button>
             </div>
             <div>
@@ -72,31 +71,30 @@
                     Images</button>
             </div>
         </div>
-        <button type="button" (click)="RegisterProduct()" class="butn">Create Product</button>
+        <button type="button" class="butn" (click)="UpdateProduct()">Update Product</button>
     </form>
 </div>
 
 <div class="overlay" *ngIf="formSuccess || formError">
     <div class="overlay-content" *ngIf="formSuccess">
         <div class="card pop-up">
-            <h1>Product Successfully Registered.</h1>
+            <h1>Product Successfully Edited.</h1>
             <div class="info">
-                <p>You have successfully registered your Product.</p>
+                <p>You have successfully Edited your Product.</p>
             </div>
             <div class="row justify-content-end">
                 <button [routerLink]="['/admin/products']">Go to Your Products</button>
-                <button (click)="Exit()">Okay</button>
             </div>
         </div>
     </div>
     <div class="overlay-content" *ngIf="formError">
         <div class="card pop-up">
-            <h1>Product Registration Unsuccessfull</h1>
+            <h1>Product updation Unsuccessfull</h1>
             <div class="info">
-                <p>You have failed to register your new product.</p>
+                <p>You have failed to edit your product.</p>
             </div>
             <div class="row justify-content-end">
-                <button>Try Again</button>
+                <button (click)="formError = false">Try Again</button>
             </div>
         </div>
     </div>

@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ProductData } from 'src/app/Interfaces/product.interface';
 import { AdminService } from 'src/app/Services/admin.service';
 import { MainServiceService } from 'src/app/Services/main-service.service';
+import { __importDefault } from 'tslib';
 
 @Component({
-  selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.css']
+  selector: 'app-edit-product',
+  templateUrl: './edit-product.component.html',
+  styleUrls: ['./edit-product.component.css']
 })
-export class AddProductComponent implements OnInit {
+export class EditProductComponent implements OnInit {
+
 
   productData: ProductData = {
     name: '',
@@ -23,7 +26,8 @@ export class AddProductComponent implements OnInit {
     category_id: ''
   };
 
-
+  productId!: string;
+  productInfo: any;
   specCount: number = 1;
   imageCount: number = 1;
   imageUrl: any = '';
@@ -34,40 +38,24 @@ export class AddProductComponent implements OnInit {
 
   categoryData: any;
 
-  constructor(private _mainService: MainServiceService, private _adminService: AdminService) { }
+  constructor(private _mainService: MainServiceService, private _adminService: AdminService, private _active: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this._active.params.subscribe((params) => {
+      this.productId = params['id'];
+    });
+
+    this._mainService.FindProduct(this.productId).subscribe((res: any) => {
+      this.productData = res;
+      this.specCount = this.productData.specs.length;
+      this.imageCount = this.productData.images.length;
+      this.imageUrl = this.productData.image;
+      this.imageUrls = this.productData.images;
+    })
+
     this._mainService.Category().subscribe((res) => {
       this.categoryData = res;
     });
-  }
-
-  RegisterProduct() {
-
-    const formData = new FormData();
-
-    Object.entries(this.productData).forEach(([key, value]) => {
-      if (Array.isArray(value)) {
-        value.forEach((item: any, index: number) => {
-          formData.append(key, item);
-        });
-      } else if (value instanceof File) {
-        formData.append(key, value, value.name);
-      } else {
-        formData.append(key, String(value));
-      }
-    });
-
-
-
-    this._adminService.PostProduct(formData).subscribe(
-      (res) => {
-        this.formSuccess = true;
-      },
-      (err) => {
-        this.formError = true;
-      }
-    );
   }
 
   numberRange(end: number): number[] {
@@ -106,8 +94,29 @@ export class AddProductComponent implements OnInit {
     }
   }
 
-  Exit() {
-    this.formError = this.formSuccess = false;
+  UpdateProduct() {
+    const formData = new FormData();
+
+    Object.entries(this.productData).forEach(([key, value]) => {
+      if (Array.isArray(value)) {
+        value.forEach((item: any, index: number) => {
+          formData.append(key, item);
+        });
+      } else if (value instanceof File) {
+        formData.append(key, value, value.name);
+      } else {
+        formData.append(key, String(value));
+      }
+    });
+
+    this._adminService.EditProduct(this.productId, formData).subscribe(
+      (res) => {
+        this.formSuccess = true;
+      },
+      (err) => {
+        this.formError = true;
+      }
+    );
   }
 
 }

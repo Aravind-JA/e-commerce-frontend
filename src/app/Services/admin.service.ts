@@ -53,8 +53,11 @@ export class AdminService {
 
   DeleteProduct(id: string) {
     this.http.delete(this._productUrl + id).subscribe((res) => {
-      console.log(res);
       this.AdminProducts.next();
     });
+  }
+
+  EditProduct(id: string, product: any) {
+    return this.http.put(this._productUrl + id, product);
   }
 }

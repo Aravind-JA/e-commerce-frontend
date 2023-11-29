@@ -28,3 +28,18 @@
         </div>
     </div>
 </div>
+
+<div class="overlay" *ngIf="loginError">
+    <div class="overlay-content">
+        <div class="card pop-up">
+            <h1>Login Unsuccessfull</h1>
+            <div class="info">
+                <p>Incorrect Username or Password.</p>
+                <p>Login to Continue.</p>
+            </div>
+            <div class="row justify-content-end">
+                <button (click)="tryAgain()">Try Again</button>
+            </div>
+        </div>
+    </div>
+</div>

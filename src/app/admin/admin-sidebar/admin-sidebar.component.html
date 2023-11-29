@@ -1,6 +1,6 @@
 <div class="card">
     <div class="sidebar">
-        <h1>{{AdminData.userName}}</h1>
+        <h4>Admin name : <span class="adm-name">{{AdminData.userName}}</span></h4>
         <hr>
         <h3 *ngFor="let content of sidebarContents" class="links"
             [ngClass]="{'active': content.toLowerCase() == currentUrl}" (click)="Navigate(content)">

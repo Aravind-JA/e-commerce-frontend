@@ -10,6 +10,7 @@ import { AdminService } from 'src/app/Services/admin.service';
 export class AdminRegisterComponent implements OnInit {
   success: boolean = false;
   error: boolean = false;
+  registrationError: string = '';
   conPassword: string = '';
   registerAdminData: {
     userName: string, phone: number | null, email: string, password: string
@@ -27,7 +28,9 @@ export class AdminRegisterComponent implements OnInit {
       this.success = true;
     },
       (err) => {
+        console.log(err);
         this.error = true;
+        this.registrationError = err.error.message;
       }
     );
   }

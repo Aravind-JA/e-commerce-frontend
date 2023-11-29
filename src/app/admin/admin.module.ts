@@ -15,6 +15,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { MatIconModule } from '@angular/material/icon';
 import { AdminTokenInterceptorService } from '../Services/admin-token-interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     AdminProductsComponent,
     AdminOrdersComponent,
     AdminProfileComponent,
-    AddProductComponent
+    AddProductComponent,
+    EditProductComponent
   ],
   imports: [
     CommonModule,

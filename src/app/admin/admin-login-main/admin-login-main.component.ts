@@ -9,20 +9,33 @@ import { AdminService } from 'src/app/Services/admin.service';
 })
 export class AdminLoginMainComponent {
 
+  loginError: boolean = false;
+
   loginAdminData: { userName: string, password: string } = { userName: '', password: '' };
 
   constructor(private _adminService: AdminService, private _router: Router) { }
 
   LoginAdmin() {
-    this._adminService.LoginAdmin(this.loginAdminData).subscribe((res: any) => {
-      localStorage.setItem('admin-token', res.token);
-      localStorage.setItem('admin-id', res.id);
-      this._router.navigate(['admin/dashboard']);
-    });
+    this._adminService.LoginAdmin(this.loginAdminData)
+      .subscribe((res: any) => {
+        localStorage.setItem('admin-token', res.token);
+        localStorage.setItem('admin-id', res.id);
+        this._router.navigate(['admin/dashboard']);
+      },
+        (err) => {
+          this.loginError = true;
+        }
+      );
   }
 
   goToRegister() {
     this._router.navigate(['admin/register']);
+  }
+
+  tryAgain() {
+    this.loginError = false;
+    this.loginAdminData = { userName: '', password: '' };
+    this._router.navigate(['admin/login']);
   }
 
 }

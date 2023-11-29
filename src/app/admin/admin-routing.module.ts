@@ -10,6 +10,7 @@ import { AdminProductsComponent } from './admin-products/admin-products.componen
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'orders', component: AdminOrdersComponent, canActivate: [adminAuthGuard] },
       { path: 'profile', component: AdminProfileComponent, canActivate: [adminAuthGuard] },
       { path: 'add-product', component: AddProductComponent, canActivate: [adminAuthGuard] },
+      { path: 'edit-product/:id', component: EditProductComponent, canActivate: [adminAuthGuard] },
     ]
   }
 ]

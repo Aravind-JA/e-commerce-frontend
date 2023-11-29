@@ -27,14 +27,30 @@
                         </ul>
                     </div>
                     <div class="pro-options">
-                        <button class="btn butn">View<mat-icon>north_east</mat-icon></button>
-                        <button class="btn butn">Edit<mat-icon>edit</mat-icon></button>
-                        <button class="btn butn" (click)="DeleteProduct(product.id)">Delete<mat-icon>delete</mat-icon></button>
-                        <!-- <h1>{{ product.price | currency:'USD':'symbol':'1.0' }}</h1>
-                        <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png"
-                            alt=""> -->
+                        <button class="btn butn"
+                            (click)="goToProduct(product.id)">View<mat-icon>north_east</mat-icon></button>
+                        <button class="btn butn"
+                            [routerLink]="['/admin/edit-product/',product.id]">Edit<mat-icon>edit</mat-icon></button>
+                        <button class="btn butn"
+                            (click)="DeleteProduct(product.id)">Delete<mat-icon>delete</mat-icon></button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="overlay" *ngIf="showDelete">
+    <div class="overlay-content">
+        <div class="card pop-up">
+            <h1>Delete Product</h1>
+            <div class="info">
+                <p>Confirm to delete the product.</p>
+            </div>
+            <div class="row justify-content-end">
+                <button class="btn btn-secondary" (click)="showDelete = false">Cancel</button>
+                <button class="btn btn-danger" (click)="ConfirmDelete()">Confirm</button>
             </div>
         </div>
     </div>

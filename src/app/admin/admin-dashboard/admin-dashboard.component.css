@@ -1,8 +1,28 @@
-/* .container {
-    margin: 1rem auto;
+.page {
+    padding: 1rem 2rem;
 }
 
-.content {
+.dash-details {
     display: flex;
-    gap: 0.8rem;
-} */
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.dash {
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.dash .head {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+
+.dash h1 {
+    text-align: center;
+}
